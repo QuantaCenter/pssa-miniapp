@@ -1,2 +1,1 @@
-# pxxs_wx
-培训学时小程序端
+# pssa-miniapp
