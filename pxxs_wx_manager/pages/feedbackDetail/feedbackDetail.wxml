@@ -1,0 +1,26 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='container'> 
+  <view class="title-container">
+    <text class="item-title">{{info.feedback}}</text>
+    <text class="item-time">{{info.year}}-{{info.month}}-{{info.day}}</text>
+  </view>
+  <view class="content-container">
+   <text class="item-content">{{info.message}}</text>
+  </view>
+  <view class="pic-container">
+    <view class="pic-box">
+      <view wx:if="{{info.pic1 !== null}}">
+        <image src="{{url + info.pic1}}" class="img"></image>
+      </view>
+      <view wx:if="{{info.pic2 !== null}}">
+        <image src="{{url + info.pic2}}" class="img"></image>
+      </view>
+      <view wx:if="{{info.pic3 !== null}}">
+        <image src="{{url + info.pic3}}" class="img"></image>
+      </view>
+      <view wx:if="{{info.pic4 !== null}}">
+        <image src="{{url + info.pic4}}" class="img"></image>
+      </view>
+    </view>
+  </view>
+</view>

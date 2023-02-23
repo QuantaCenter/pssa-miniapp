@@ -1,0 +1,214 @@
+/* pages/select/select.wxss */
+
+.search {
+  width: 450rpx;
+  height: 66rpx;
+  background-color: rgba(237, 237, 237, 1);
+  font-size: 34rpx;
+  border-radius: 20rpx;
+  float: left;
+  border: 1px;
+}
+
+.input-container {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.input-item {
+  width: 380rpx;
+  height: 66rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  float: left;
+  position: relative;
+  margin-left: 26rpx;
+}
+
+.input {
+  width: 450rpx;
+  height: 66rpx;
+  background-color: #eee;
+  border-radius: 20rpx;
+  font-size: 34rpx;
+  font-family: Source Han Sans CN;
+  color: #666;
+  line-height: 70rpx;
+  padding-left: 55rpx;
+  z-index: 1;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10rpx;
+  z-index: 10;
+}
+
+.term {
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #00478b;
+  margin-right: 55rpx;
+}
+
+.time-selected-icon {
+  width: 12rpx;
+  height: 28rpx;
+  position: relative;
+  left: 10rpx;
+  top: 4rpx;
+}
+.member-container {
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 20rpx
+}
+.member-box {
+  width: 500rpx;
+  background: #fcfcfc;
+  box-shadow: 0rpx 9rpx 13rpx 0rpx rgba(0, 0, 0, 0.1);
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+  padding-bottom: 22rpx;
+}
+.dept-container {
+  width: 500rpx;
+  height: 60rpx;
+  border-bottom: 1rpx solid #CFCFCF;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.select-icon {
+  width: 28rpx;
+  height: 28rpx;
+  border: 1px solid rgba(153, 153, 153, 1);
+  border-radius: 50%;
+  margin-left: 20rpx;
+  margin-right:15rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checked {
+  width: 18rpx;
+  height: 18rpx;
+  background: rgba(0, 71, 139, 1);
+  border-radius: 50%;
+}
+.department{
+  color: #333333;
+  font-size: 34rpx;
+  font-family:Source Han Sans CN;
+}
+.info-container{
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  margin-left: 46rpx;
+}
+.info-box{
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  margin-top: 24rpx;
+}
+.confirm{
+  width: 300rpx;
+  height: 90rpx;
+  background-color: #00478B;
+  color: #FDFDFD;
+  font-family: SourceHanSansCN-Regular;
+  position: fixed;
+  bottom: 0;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border-radius:45rpx;
+  margin: 15rpx 0 15rpx 0;
+  box-shadow:0px 6px 20px 4px rgba(0,130,255,0.25);
+}
+.scope0{
+  color: #D30EF7
+}
+.scope1{
+  color: #F76260
+}
+.scope2{
+  color: #09BB07
+}
+.scope3{
+  color: #666666
+}
+.sign-tab{
+  width: 100%;
+  height: auto;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100rpx;
+}
+
+.card{
+  margin: 20rpx ;
+  border: 1rpx solid lightgray;
+  border-radius: 30rpx;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  text-align: center;
+  width: 450rpx;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  border-bottom: 1rpx solid lightgray;
+}
+
+.check-item{
+  margin: 10rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+}
+.check-item>view, .card-header>view{
+  text-align: center;
+  flex: 1;
+}

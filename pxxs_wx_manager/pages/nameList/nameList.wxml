@@ -1,0 +1,86 @@
+<!--pages/teacher/studentSearch/studentSearch.wxml-->
+<view class='container'>
+  <view class='input-container'>
+    <view class='time-picker'>
+      <picker class='year' value='{{year_index}}' range='{{years}}' bindchange="switchYear">
+        <text style='color: #00478b'>{{years[year_index]}}</text>
+        <image class='time-selected-icon' src='../img/2.png'></image>
+      </picker>年
+      <picker class='month' value='{{month_index}}' range='{{months}}' bindchange="switchMonth">
+        <text style='color: #00478b'>{{months[month_index]}}</text>
+        <image class='time-selected-icon' src='../img/2.png'></image>
+      </picker>月
+    </view>
+    <view class='input-item'>
+      <input bindconfirm="search" bindblur="search" bindinput='getSearchKey' class='input' confirm-type="搜索" placeholder='搜索姓名'></input>
+      <icon type='search' size='16' class='input-icon'></icon>
+      <picker bindchange='switchDepar' class='sort-container' value='{{index}}' range='{{all_dept}}' >
+        <text style='color: #00478b'>{{all_dept[index]}}</text>
+        <image class='sort-icon' src='../img/choose.png'></image>
+      </picker>
+    </view>
+  </view>
+  <view class='info-container'>
+    <view class='info-row'>
+      <view class='item-head'>姓名</view>
+      <view class='item-head'>工号</view>
+      <view class='item-head'>单位</view>
+      <view class='item-head'>学时数</view>
+      <view class='item-head'>
+        <text>出席\n次数</text>
+      </view>
+      <view class='item-head'>
+        <text>缺勤\n次数</text>
+      </view>
+      <view class='item-head'>
+        <text>请假\n次数</text>
+      </view>
+    </view>
+    <view wx:for='{{member.member}}' data-mid='{{item.user_id}}' data-period="{{item.period}}" data-username="{{item.username}}" bindtap='toDetail' wx:key='{{item.user_id}}' class='info-row2'>
+      <view class='info-item'>{{item.username}}</view>
+      <view class='info-item'>
+        <text class='text'>{{item.number}}</text>
+      </view>
+      <view class='info-item'>
+        <text class='text'>{{item.major}}</text>
+      </view>
+      <view class='info-item'>{{item.period}}</view>
+      <view class='info-item'>{{item.attend}}</view>
+      <view class='info-item'>{{item.absence}}</view>
+      <view class='info-item'>{{item.ask_leave}}</view>
+    </view>
+  </view>
+  <view class="num-container">
+      <view class="div-container">
+        <view class="div"></view>
+        <text style="margin-left:10rpx">总计</text>
+      </view>
+      <view class="item-container">
+        <view class="num-item">
+          <view class="num">{{member.all_people}}</view>
+          <text class="word">总人数</text>
+        </view>
+        <view class="item-div"></view>
+        <view class="num-item">
+          <view class="num">{{member.all_period}}</view>
+          <text class="word">总学时数</text>
+        </view>
+        <view class="item-div"></view>
+        <view class="num-item">
+          <view class="num">{{member.all_attend}}</view>
+          <text class="word">总出席次数</text>
+        </view>
+        <view class="item-div"></view>
+        <view class="num-item">
+          <view class="num">{{member.all_absence}}</view>
+          <text class="word">总缺席次数</text>
+        </view>
+        <view class="item-div"></view>
+        <view class="num-item">
+          <view class="num">{{member.all_ask_leave}}</view>
+          <text class="word">总请假次数</text>
+        </view>
+      </view>
+    </view>
+
+</view>

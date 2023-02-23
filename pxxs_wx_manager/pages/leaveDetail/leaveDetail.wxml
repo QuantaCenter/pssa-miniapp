@@ -1,0 +1,48 @@
+<view class='container'>
+  <view class='info-container'>
+    <view class='info-row' style='color: #0047b8; font-size: 30rpx'>
+      <view  wx:if='{{!is_all}}' class='item-head' bindtap='chooseAll'>
+        全选
+        <view class='checkbox' style='margin-left:10rpx;'>
+        </view>
+      </view>
+      <view  wx:if='{{is_all}}' class='item-head' bindtap='chooseNone'>
+        取消全选
+        <view class='checkbox' style='margin-left:10rpx;'>
+            <image class='check' src='../img/check.png'></image>
+        </view>
+      </view>
+      <view class='item-head'>姓名</view>
+      <view class='item-head'>单位</view>
+      <view class='item-head'>理由</view>
+    </view>
+    <view wx:for='{{member}}' class='info-row'>
+    <view class='modal-mask' catchtouchmove='preventTouchMove' wx:if='{{hidden}}'></view>
+    <view class='modal-container' wx:if='{{hidden}}'>
+      <view class='modal-title'>请输入理由</view>
+      <view class='modal-content'>
+        <textarea auto-focus='true' class='modal-input' value='{{reason}}' bindinput='getReason' ></textarea>
+      </view>
+      <view class='modal-footer'>
+        <view class='btn-cancel' bindtap='cancel'>取消</view>
+        <view class='btn-confirm' bindtap='fail'>确定</view>
+      </view>
+    </view>
+      <view class='item-head'>
+        <view class='checkbox' style='margin-left:10rpx;' data-index='{{index}}' bindtap='choose'>
+            <image wx:if='{{choose_on[index]}}' class='check' src='../img/check.png'></image>
+        </view>
+      </view>
+      <view class='item-head'>{{item.username}}</view>
+      <view class='item-head'>{{item.major}}</view>
+      <view class='item-head'>{{item.reason}}</view>
+      
+    </view>
+    
+  </view>
+
+  <view class='tab-container'>
+    <view bindtap='askForReason' class='fail' style='background-color:#E64340;box-shadow:0rpx 3rpx 10rpx 2rpx #FF0500;'>不通过</view>
+    <view bindtap='pass' class='pass' style='background-color:#1EBA09;box-shadow:0rpx 3rpx 10rpx 2rpx #1EFF00;'>通过</view>
+  </view>
+</view>

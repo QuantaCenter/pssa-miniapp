@@ -1,0 +1,27 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="container">
+  <view wx:if='{{member.length !== 0}}' class="feedback-container">
+    <view class="select" bindtap="chooseAll">
+      <view class='select-icon'>
+        <view wx:if='{{all_on}}' class='checked'></view>
+      </view>
+      <view style="font-size: 32rpx; color: #333333">全选</view>
+    </view>
+    <view class="info-container" wx:for="{{member}}" wx:for-index='index' wx:for-item='info'>
+      <view class='info-box'>
+        <view class='select-icon' data-index='{{index}}' bindtap='chooseMember'>
+            <view wx:if='{{member_on[index]}}' class='checked'></view>
+        </view>
+        <view class="title-container" bindtap="toDetail" data-id="{{info.feedback_id}}">
+          <view class="title-box">
+            <image src="../img/mail.png" class="img"></image>
+            <view class='title'>{{info.feedback}}</view>
+          </view>
+          <text class="time">{{info.year}}-{{info.month}}-{{info.day}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style='margin-top:300rpx;' wx:if="{{member.length === 0}}">暂无反馈</view>
+  <view wx:if='{{member.length !== 0}}' class="delete" bindtap="deleteFb">删除</view>
+</view> 

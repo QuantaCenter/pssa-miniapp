@@ -1,0 +1,43 @@
+<view class='container'>
+	<view wx:if='{{pageType === ""}}' class='input-container'>
+		<!-- <view class='time-picker'>
+			<picker  value='{{term_index}}' range='{{term_option}}' bindchange="switchTerm">
+        {{term_option[term_index]}}学期
+			</picker>
+		</view> -->
+		<view class='input-item'>
+			<image src='./img/search.png' wx:if='{{searchImg}}' style='width:32rpx; height: 32rpx; position:fixed;left:296rpx;'></image>
+			<input bindinput='getSearchKey' value="{{searchValue}}" class='input' placeholder='搜索' bindfocus='searchFocus' bindblur='searchBlur'></input>
+		</view>
+		<view wx:if='{{rank == 2}}' class="input-item">
+			<checkbox checked="{{checked}}" value="{{checked}}" bindtap="change"></checkbox>查看审核会议
+		</view>
+	</view>
+	<view wx:if='{{pageType === ""}}' style="width: 100%; height: 180rpx"></view>
+	<view wx:if='{{isSearch? searchList.length == 0 :pageType === ""&&!checked?meetings.length === 0:aduitMeeting.length==0}}' style="font-size: 40rpx; margin-top: 300rpx">暂无会议</view>
+	<view bindtap='toDetail' data-mid='{{item.id}}' wx:for="{{isSearch? searchList :pageType===''&&!checked? meetings :aduitMeeting}}" wx:key="id" class='meeting-container'>
+		<image mode='aspectFill' class='meeting-img' src='../img/logo.jpg'></image>
+		<view class='meeting-title'>{{item.name}}</view>
+		<view wx:if="{{pageType !== 'addCheck'}}" class="{{item.type == 2 ?  'must' : 'elective'}}" style='width:140rpx; height:40rpx; border-radius:10rpx; font-size:28rpx; text-align: center; float: right; margin-left: 540rpx;'>{{item.type == 2 ? 'General' : 'Specific'}}</view>
+		<view wx:if="{{pageType === 'addCheck'}}" class="add" style='border-radius:10rpx; font-size:28rpx; margin-left: 600rpx;'>补录</view>
+		<view class='meeting-detail'>
+			<view class='item-container'>
+				<image class='item-icon' src='./img/tag.png'></image>
+				<view class='item-text'>{{item.level}}</view>
+			</view>
+			<view class='item-container'>
+				<image class='item-icon' src='./img/count.png'></image>
+				<view class='item-text'>{{item.score}}学时</view>
+			</view>
+			<view class='item-container' style="width: 100%">
+				<image class='item-icon' src='./img/8.png'></image>
+				<view class='item-text'>{{item.starttime}} 至 {{item.endtime}}</view>
+			</view>
+			<view class='item-container' style='width: 100%'>
+				<image class='item-icon' src='./img/15.png'></image>
+				<view class='item-text'>{{item.position}}</view>
+			</view>
+
+		</view>
+	</view>
+</view>

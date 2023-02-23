@@ -1,0 +1,39 @@
+<!--pages/select/select.wxml-->
+<view class='input-container'>
+  <view class='input-item'>
+    <input bindinput='getSearchKey' class='input' placeholder='搜索姓名'></input>
+    <icon type='search' size='16' class='input-icon'></icon>
+  </view>
+  <picker class='term' value='{{dept_index}}' range='{{all_dept}}' bindchange='switchDepar'>
+    <text style='color: #00478b'>{{all_dept[dept_index]}}</text>
+    <image class='time-selected-icon' src='./img/choose.png'></image>
+  </picker>
+</view>
+<view class='member-container'>
+  <view  class='member-container' wx:for='{{member}}'>
+    <view wx:if='{{dept_state[index]}}' class='member-box' >
+    <view  class='dept-container' data-index='{{index}}' bindtap='chooseAll'>
+      <view class='select-icon'>
+        <view wx:if='{{dept_on[index]}}' class='checked'></view>
+      </view>
+      <view  class='department'>{{item.college}}</view>
+      <!-- <checkbox-group bindchange=''>
+      <label class='checkbox' wx:for='{{items}}'>
+        <checkbox value="{{item.name}}" checked="{{item.checked}}">{{item.value}}</checkbox>
+      </label>
+    </checkbox-group> -->
+    </view>
+    <view class='info-container' wx:for='{{item.member}}' data-index='{{index}}' data-num='{{mem_index}}' wx:for-index='mem_index' wx:key='user_id' wx:for-item='info' bindtap='choose'>
+      <view class='info-box'>
+        <view class='select-icon'>
+          <view wx:if='{{member_on[index][mem_index]}}' class='checked'></view>
+        </view>
+        <view class='{{info.scope === 1 ? "scope0" : info.scope === 2 ? "scope1" : info.scope === 3 ? "scope2" : "scope3"}}'>{{info.username}}</view>
+      </view>
+    </view>
+  </view>
+  </view>
+</view>
+<view class="sign-tab">
+  <view bindtap='confirm' class='confirm'>确定</view>
+</view>

@@ -1,0 +1,33 @@
+<!--pages/teacher/ind   ex/index.wxml-->
+<view class='container'>
+  <view style='width:100%; margin-bottom:20rpx' >
+    <view class='tab-item {{tab[index] ? "tab-style" : ""}}'  bindtap='tabtab'  data-tab='{{index}}' wx:for='{{tabname}}' wx:key='item'>
+      <view class='icon-container'>
+        <image wx:if='{{index === 0}}' class='icon' src='../img/icon1.png'></image>
+        <image wx:if='{{index === 1}}' class='icon' src='../img/icon2.png'></image>
+        <image wx:if='{{index === 2}}' class='icon' src='../img/icon3.png'></image>
+        <image wx:if='{{index === 3}}' class='icon' src='../img/icon4.png'></image>
+        <view class='tab-name'>{{item}}</view>
+      </view>
+      <image class='arrow' src='../img/path_small.png'></image>
+    </view>
+  </view>
+  
+    <view class='tab-container' bindtap='check' data-tab='{{index}}' wx:for='{{common}}' wx:key='item' wx:if='{{tabShow}}'> 
+      <view class='icon-container'>
+        <image wx:if='{{index === 0}}' class='icon' src='../img/icon5.png'></image>
+        <image wx:if='{{index === 1}}' class='icon' src='../img/icon6.png'></image>
+        <view class='tab-name'>{{item}}</view>
+      </view>
+      <image class='arrow' src='../img/path_small.png'></image>
+    </view>
+  <view class='tab-container' bindtap='setting' style='margin-top:20rpx;'>
+    <view class='icon-container'>
+      <image class='icon' src='../img/setting.png'></image>
+      <view class='tab-name'>设置</view>
+    </view>
+    <image class='arrow' src='../img/path_small.png'></image>
+  </view>
+  <view style='width:100%;height:40rpx;font-size:28rpx;color:#576b95;text-align:center;line-height:40rpx;position:fixed;bottom:50rpx;'>Quanta(量子)信息技术服务中心</view>
+  <view style='width:100%;height:30rpx;font-size:20rpx;color:#b2b2b2;text-align:center;line-height:30rpx;position:fixed;bottom:10rpx;'>Copyright © 2017 - 2022 广外培训学时</view>
+</view>

@@ -1,0 +1,22 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='container'> 
+  <!-- <view class="title-container">
+    <text class="item-text">主题</text>
+    <input bindinput='getTitle' maxlength='20' value='{{title}}' class='item-title' placeholder="(必填)"></input>
+  </view> -->
+  <view class="content-container">
+   <text class="item-text">内容</text>
+    <textarea bindinput="getContent" value='{{content}}' placeholder="(必填)" class='item-content'></textarea>
+  </view>
+  <!-- <view class="pic-container">
+    <text class="item-text">图片</text>
+    <view class="pic-box">
+      <view wx:for='{{img}}'wx:key='{{index}}'>
+        <image class='img' mode='scaleToFill' src='{{item.path}}'></image>
+        <image src="img/delete.png" class="delete" data-index="{{index}}" bindtap='deletePic'></image>
+      </view>
+      <image src="img/addPic.png" mode='scaleToFill' class="img" bindtap='getPic'>      </image>
+    </view>
+  </view> -->
+  <view bindtap='submit' class='submit'>匿名提交</view>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/index/fail.wxml-->
+<view class='container'>
+    <image style='width:200rpx;height:200rpx;margin-top:110rpx;' src='img/0.png'></image>
+    <text style='font-family: SourceHanSansCN-Regular;font-size: 40rpx;color: #333333;margin-top:46rpx;'>{{word}}</text>
+    <navigator open-type='navigateBack' style='width:638rpx;height:100rpx;line-height:100rpx;text-align:center;font-family: SourceHanSansCN-Regular;font-size: 40rpx;color: #ffffff;margin-top:46rpx;background-color:#00478b;border-radius:50rpx;'>重新签到</navigator>
+    <navigator open-type='navigateBack' style='width:638rpx;height:100rpx;line-height:100rpx;text-align:center;font-family: SourceHanSansCN-Regular;font-size: 40rpx;color: #333333;margin-top:28rpx;background-color:#fbfafc;border-radius:50rpx;'>返回</navigator> 
+    
+    <view style='width:100%;height:40rpx;font-size:28rpx;color:#576b95;text-align:center;line-height:40rpx;position:fixed;bottom:50rpx;'>Quanta(量子)信息技术服务中心</view>
+    <view style='width:100%;height:30rpx;font-size:20rpx;color:#b2b2b2;text-align:center;line-height:30rpx;position:fixed;bottom:10rpx;'>Copyright © 2017 - 2022 广外思政学时</view>
+</view>

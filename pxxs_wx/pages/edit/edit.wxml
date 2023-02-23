@@ -1,0 +1,129 @@
+<view class='container'>
+  <!-- <view style='display: block;width:100%;'> -->
+  <text style='height:80rpx;width:720rpx;text-align:left;color:#888888;background-color:#efefef;font-size:28rpx;line-height:80rpx;padding-left:30rpx;'>基本信息</text>
+  <view class='info-item'>
+    <text class='item-text'>会议名称</text>
+    <input bindfocus='bindKeyFocus' bindblur='bindKeyBlur' bindinput='getName' maxlength='10' value='{{name}}' class='item-content' auto-focus='true'></input>
+    <icon type='clear' size='20' class='clear'  bindtap='clearName' wx:if='{{hiddenName}}'></icon>
+  </view>
+  <view class='info-item'>
+    <text class='item-text'>主办单位</text>
+    <picker value="{{host_index}}" range="{{all_dept}}" bindchange="getHost">
+      <view class="item-content">{{host}}
+        <image src='./img/arrow.png' style='width:12rpx; height:22rpx;'></image>
+      </view>
+    </picker>
+  </view>
+  
+   <view wx:if='{{host === "其他"}}' class='info-item'>
+    <text class='item-text'></text>
+    <input bindinput='inputHost' maxlength='10' value='{{input_host}}'  placeholder="主办单位" class='item-content'></input>
+  </view>
+  <view wx:if='{{host === "其他"}}' class='info-item'>
+    <text class='item-text'>派出单位</text>
+    <picker value="{{department_index}}" range="{{all_dept}}" bindchange="getDept">
+      <view class="item-content">{{department}}
+        <image src='./img/arrow.png' style='width:12rpx; height:22rpx;'></image>
+      </view>
+    </picker>
+  </view>
+  <view wx:if='{{host === "其他" && department === "其他"}}' class='info-item'>
+    <text class='item-text'></text>
+    <input bindinput='inputDept' maxlength='10' value='{{input_dept}}' placeholder="派出单位" class='item-content'></input>
+  </view>
+  <view class='info-item'>
+    <text class='item-text'>级别</text>
+    <picker value="{{type_index}}" range="{{all_level}}" bindchange="getLevel">
+      <view class="item-content">{{level}}
+        <image src='./img/arrow.png' style='width:12rpx; height:22rpx;'></image>
+      </view>
+    </picker>
+  </view>
+  <view class='info-item'>
+    <text class='item-text'>类别</text>
+    <picker value="{{kind_index}}" range="{{all_kind}}" bindchange="getKind">
+      <view class="item-content">{{kind}}
+        <image src='./img/arrow.png' style='width:12rpx; height:22rpx;'></image>
+      </view>
+    </picker>
+  </view>
+  <!-- <view class='info-item'>
+    <text class='item-text'>人数</text>
+    <input bindinput='getNum' value='{{people}}' class='item-content'></input>
+  </view> -->
+  <view class='info-item'>
+    <text class='item-text'>学时</text>
+    <input bindinput='getPer' maxlength='2' value='{{period}}' class='item-content'></input>
+  </view>
+  <text style='height:80rpx;width:720rpx;text-align:left;align-self:flex-end;color:#888888;background-color:#efefef;font-size:28rpx;line-height:80rpx;padding-left:30rpx;'>时间地点</text>
+  <view class='info-item'>
+    <text class='item-text'>开始日期</text>
+    <picker mode="date" value="{{start_date}}" start="2018-08-01" bindchange="startDate">
+    <view class="item-content">{{start_date}}
+      <image src='./img/arrow.png' style='width:12rpx; height:22rpx;'></image>
+    </view>
+  </picker>
+  </view>
+  <view class='info-item'>
+    <text class='item-text'>开始时间</text>
+    <picker mode="time" value="{{start_time}}" bindchange="getStart">
+    <view class="item-content">{{start_time}}
+      <image src='./img/arrow.png' style='width:12rpx; height:22rpx;'></image>
+    </view>
+    </picker>
+  </view>
+  <view class='info-item'>
+    <text class='item-text'>结束日期</text>
+    <picker mode="date" value="{{end_date}}" start="2018-08-01" bindchange="endDate">
+    <view class="item-content">{{end_date}}
+      <image src='./img/arrow.png' style='width:12rpx; height:22rpx;'></image>
+    </view>
+  </picker>
+  </view>
+  <view class='info-item'>
+    <text class='item-text'>结束时间</text>
+    <picker mode="time" value="{{end_time}}" bindchange="getOver">
+    <view class="item-content">{{end_time}}
+      <image src='./img/arrow.png' style='width:12rpx; height:22rpx;'></image>
+    </view>
+  </picker>
+  </view>
+  <view class='info-item'>
+    <text class='item-text'>会议地点</text>
+    <input bindinput='getPos' bindfocus='bindPosFocus' bindblur='bindPosBlur'  maxlength='10' value='{{position}}' class='item-content'></input>
+    <icon type='clear' size='20' class='clear' bindtap='clearPos' wx:if='{{hiddenPos}}'></icon>
+  </view>
+  
+  
+  
+
+  <text style='height:54rpx;width:720rpx;text-align:left;align-self:flex-end;color:#888888;background-color:#efefef;font-size:28rpx;line-height:54rpx;padding-left:30rpx;'>其他</text>
+  <view class='info-item'>
+    <text class='item-text'>出席人员</text>
+    <view class='select-people' bindtap='toNameList'>
+        <text>人员选择</text>
+        <image src='./img/path_blue.png' style='width:12rpx; height: 20rpx; margin-left:12rpx; margin-top:12rpx;'></image>
+    </view>
+  </view>
+  <text style='height:60rpx;width:720rpx;text-align:left;align-self:flex-end;color:#000000;font-size:34rpx;line-height:80rpx;padding-left:30rpx;'>相关图片</text>
+  <view class='img-container'>
+    <view wx:for='{{photo}}'wx:key='{{index}}' style="height: 116rpx; width:126rpx;">
+      <image class='img' mode='aspectFit' src='{{item.path}}'></image>
+      <image src="img/delete.png" class="delete" data-index="{{index}}" bindtap='deletePic'></image>
+    </view>
+    <image bindtap='getPic' class='img' mode='aspectFit' src='./img/add.png'></image>
+  </view>
+  <view class='intro-item'>
+    <text class='item-text'>会议简介</text>
+    <textarea bindinput="getDesc" value='{{description}}' placeholder="请输入内容" class='descript'></textarea>
+  </view>
+  <view wx:if='{{rank === 1}}' class='info-item' bindtap='getMust'>
+    <text class='item-text'>General</text>
+    <image  wx:if='{{must}}' class='tick' style='left:500rpx' src='./img/tick.png'></image>
+  </view>
+  <view wx:if='{{rank === 1}}' class='info-item' bindtap='getChosen'>
+    <text class='item-text'>Specific</text>
+    <image  wx:if='{{chosen}}' class='tick' style='left:500rpx' src='./img/tick.png'></image>
+  </view>
+  <view bindtap='publish' class='submit'>申请补录</view>
+</view>

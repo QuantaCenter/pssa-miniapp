@@ -1,0 +1,13 @@
+/* pages/set/set.wxss */
+page{
+  background-color: #eeeeee;
+}
+
+.textarea-box{
+  margin: 20rpx 30rpx;
+}
+
+.textarea{
+  border: 1px solid lightgray;
+  border-radius: 10rpx;
+}

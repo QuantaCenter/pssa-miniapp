@@ -1,0 +1,212 @@
+/* pages/me/me.wxss */
+page{
+  background-color: #eeeeee;
+}
+.userinfo-container{
+  width: 100%;
+  height: 224rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+}
+.username{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 60rpx;
+  color: #333333;
+  margin-left: 40rpx;
+}
+.college{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 36rpx;
+  color: #666666;
+  margin-left: 40rpx;
+}
+.setting-bt{
+  width: 22rpx;
+  height: 36rpx;
+  position: absolute;
+  right: 36rpx;
+  top: 96rpx;
+}
+.period-container{
+  width: 100%;
+  height: 98rpx;
+  margin-top: 20rpx;
+  background-color: #ffffff;
+  line-height: 98rpx;
+  box-sizing: border-box;
+  font-size: 36rpx;
+  color: #333333;
+  text-align: left;
+  padding-left: 34rpx;
+}
+.attendance-container{
+  width: 100%;
+  height: 290rpx;
+  margin-top: 4rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.top-container{
+  width: 100%;
+  height: 42rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+.top-attend-container{
+  width: 100%;
+  height: 42rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+.attendance-icon{
+  width: 40rpx;
+  height: 42rpx;
+  margin-left: 40rpx;
+}
+.attendance-text{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 44rpx;
+  color: #00478b;
+  margin-left: 28rpx;
+}
+.attendance-time{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #00478b;
+  margin-right: 55rpx;
+  }
+.time-selected-icon{
+  width: 12rpx;
+  height: 28rpx;
+  position: relative;
+  left: 10rpx;
+  top: 4rpx;
+}
+.detail-container{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 34rpx;
+}
+.detail-box{
+  width: 25%;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-right: 1px #efefef solid;
+  box-sizing: border-box;
+}
+.attend-time{
+  font-family: Roboto-Regular;
+  font-size: 60rpx;
+  color: #333333;
+}
+.attend-text{
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  color: #666666
+}
+.meeting-container {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 20rpx;
+  border-top: 4rpx solid #EEEEEE;
+}
+.meeting-icon{
+  width: 40rpx;
+  height: 32rpx;
+  margin-left: 40rpx;
+}
+.meeting-img {
+  width:690rpx;
+  height:340rpx;
+  border-radius:20rpx;
+}
+.meeting-title{
+  width: 680rpx;
+  color: #333333;
+  font-size: 50rpx;
+  padding: 38rpx 38rpx;
+}
+/*  */
+.mandatory{
+border:2rpx solid #F76260; 
+color: #F76260;
+}
+.elective{
+border:2rpx solid #09BB07; 
+color: #09BB07;
+}
+.meeting-detail{
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+}
+.item-container{
+  width: 50%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;  
+}
+.item-icon{
+  width: 36rpx;
+  height:36rpx;
+  margin-left: 38rpx;
+}
+/* .item-icon:first-child{
+  width: 40rpx;
+}
+.item-icon:nth-child(4){
+  width: 30rpx;
+} */
+.item-text{
+  font-size: 28rpx;
+  color: #666666;
+  margin-left: 23rpx;
+}

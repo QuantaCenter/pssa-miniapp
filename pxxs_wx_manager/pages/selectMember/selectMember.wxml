@@ -1,0 +1,88 @@
+<!--pages/teacher/studentSearch/studentSearch.wxml-->
+<!--pages/select/select.wxml-->
+<view class='input-container'>
+	<!-- <view class='input-item'>
+		<input bindinput='getSearchKey' class='input' placeholder='搜索姓名'></input>
+		<icon type='search' size='16' class='input-icon'></icon>
+	</view> -->
+  <view></view>
+	<picker class='term' value='{{dept_index}}' range='{{deptList}}' bindchange='switchDepar'>
+		<text style='color: #00478b'>{{deptList[dept_index]}}</text>
+		<image class='time-selected-icon' src='../img/choose.png'></image>
+	</picker>
+</view>
+<view class='member-container'>
+	<block wx:if="{{pageType==='select'}}">
+		<block wx:if="{{type==1}}">
+			<block wx:for="{{peopleList}}" wx:key="major">
+				<view class="card" wx:if="{{dept_index==0||deptList[dept_index]==item.major}}">
+					<view class="card-header">
+						<checkbox value="{{item.checked}}" checked="{{item.checked}}" data-major="{{item.major}}" bindtap="majorChecked"></checkbox>
+						<view>{{item.major}}</view>
+					</view>
+					<view class="card-main">
+						<view class="check-item" wx:for="{{item.people}}" wx:key="id" wx:for-item="people">
+							<checkbox value="{{people.checked}}" checked="{{people.checked}}" data-id="{{people.id}}" data-major="{{item.major}}" bindtap="peopleChecked"></checkbox>
+							<view>{{people.username}}</view>
+						</view>
+					</view>
+				</view>
+			</block>
+		</block>
+		<block wx:else>
+			<view class="card">
+				<view class="card-header">
+					<checkbox value="{{checked}}" checked="{{checked}}" bindtap="selectAlldept"></checkbox>
+					全选
+				</view>
+        <view class="card-main">
+          <view class="check-item" wx:for="{{selectMemberList}}" wx:key="value">
+            <checkbox value="{{item.checked}}" checked="{{item.checked}}" data-dept="{{item.value}}"  bindtap="deptSelect"></checkbox>
+							{{item.value}}
+          </view>
+        </view>
+			</view>
+      
+		</block>
+
+	</block>
+
+	<!-- <view wx:if='{{state === "已选人"}}' class='member-container' wx:for='{{member}}'>
+    <view wx:if='{{dept_state[index]}}' class='member-box'>
+    <view wx:if='{{item.college !== "全部单位"}}' class='dept-container' data-index='{{index}}' bindtap='select'>
+      <view class='select-icon'>
+      </view>
+      <view class='department'>{{item.college}}</view>
+    </view>
+    <view class='info-container' wx:for='{{item.member}}' data-index='{{index}}' data-num='{{mem_index}}' wx:for-index='mem_index' wx:key='user_id' wx:for-item='info' bindtap='select'>
+      <view class='info-box'>
+        <view class='select-icon'>
+          <view wx:if='{{member_on[index][mem_index]}}' class='checked'></view>
+        </view>
+        <view class='{{info.scope === 1 ? "scope0" : info.scope === 2 ? "scope1" : info.scope === 3 ? "scope2" : "scope3"}}'>{{info.username}}</view>
+      </view>
+    </view>
+  </view>
+  </view>
+  <view wx:if='{{state !== "已选人"}}' class='member-container' wx:for='{{member}}'>
+    <view wx:if='{{dept_state[index]}}' class='member-box'>
+    <view wx:if='{{item.college !== "全部单位"}}' class='dept-container' data-index='{{index}}' bindtap='chooseCollege'>
+      <view class='select-icon'>
+        <view wx:if='{{dept_on[index]}}' class='checked'></view>
+      </view>
+      <view class='department'>{{item.college}}</view>
+    </view>
+    <view class='info-container' wx:for='{{item.member}}' data-index='{{index}}' data-num='{{mem_index}}' wx:for-index='mem_index' wx:key='user_id' wx:for-item='info' bindtap='chooseMember'>
+      <view class='info-box'>
+        <view class='select-icon'>
+          <view wx:if='{{member_on[index][mem_index]}}' class='checked'></view>
+        </view>
+        <view class='{{info.scope === 1 ? "scope0" : info.scope === 2 ? "scope1" : info.scope === 3 ? "scope2" : "scope3"}}'>{{info.username}}</view>
+      </view>
+    </view>
+  </view>
+  </view> -->
+</view>
+<view class="sign-tab">
+	<view bindtap='confirm' class='confirm'>确定</view>
+</view>

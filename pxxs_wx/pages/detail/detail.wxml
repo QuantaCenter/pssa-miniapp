@@ -1,0 +1,196 @@
+<!--pages/detail/detail.wxml-->
+
+<view class='container' style='position:relative;'>
+	<image class='meeting-img' mode='aspectFill' src='../me/img/logo.jpg'></image>
+	<view class='cover'>
+		<view class='meeting-name'>{{meeting.name}}</view>
+	</view>
+	<view catchtap='fold' class='meeting-states'>
+		<text class='content-text'>内容简介：<text wx:if='{{is_folded && need_folded}}' class='floded'>{{folded}}<text class='folded-text'>详情</text></text>
+		<text wx:if='{{!need_folded}}' class='floded'>{{meeting.introduction}}</text>
+		<text wx:if='{{!is_folded && need_folded}}' class='floded'>{{meeting.introduction}} <text class='folded-text'> 收起</text></text></text>
+	</view>
+	<view class='department-container'>
+		<view class='department'>
+			<text class='department-text'>主办单位：<text class='department-content'>{{meeting.hold_unit}} </text></text>
+			<text class='department-text'>派出单位：<text class='department-content'>{{meeting.send_unit}} </text></text>
+		</view>
+	</view>
+	<view class='info-container'>
+		<view class='detail'>
+			<text class='item-style'>级别：<text class='item-content'>{{meeting.level}}</text></text>
+			<view class="state">
+				{{stateObject[meeting.state]}}
+			</view>
+			<text class='item-style'>类别：<text class='item-content'>{{meeting.category}}</text></text>
+			<text class='item-style'>学时：<text class='item-content'>{{meeting.score}}</text></text>
+
+			<text class='item-style'>开始时间：<text class='item-content'>{{meeting.starttime}}</text></text>
+			<text class='item-style'>结束时间：<text class='item-content'>{{meeting.endtime}}</text></text>
+			<text class='item-style'>地点：<text class='item-content'>{{meeting.position}}</text></text>
+			<!-- <text wx:if='{{meeting.type === 2}}' class='item-style'>报名人数：<text class='item-content'>{{meeting.sign_number}}</text></text> -->
+		</view>
+	</view>
+	<view wx:if="{{type === '3'}}" class='pic-container'>
+		<view class='detail'>
+			<text class='item-style'>相关图片</text>
+			<view class='pic-box'>
+				<view wx:if="{{meeting.pic1 !== null}}">
+					<image src="{{url + meeting.pic1}}" class="img"></image>
+				</view>
+				<view wx:if="{{meeting.pic2 !== null}}">
+					<image src="{{url + meeting.pic2}}" class="img"></image>
+				</view>
+				<view wx:if="{{meeting.pic3 !== null}}">
+					<image src="{{url + meeting.pic3}}" class="img"></image>
+				</view>
+				<view wx:if="{{meeting.pic4 !== null}}">
+					<image src="{{url + meeting.pic4}}" class="img"></image>
+				</view>
+			</view>
+
+		</view>
+	</view>
+	<view wx:if="{{type == '3'}}" class='mem-container'>
+		<view class='detail'>
+			<text class='item-style'>已选择人员</text>
+			<view class='member-box'>
+				<view class='info-row'>
+					<view class='item-head'>单位</view>
+					<view class='item-head'>姓名</view>
+				</view>
+				<view wx:for='{{member}}' class='info-row'>
+					<view class='info-department'>{{item.department}}</view>
+					<view class='info-box'>
+						<view>
+							<view class='info-item' wx:for='{{item.info}}' wx:key='user_id' wx:for-item='info'>{{info.username}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view wx:if="{{meeting.state == 3}}" class='sign-tab'>
+		<view wx:if="{{meeting.person_status == 4}}" class='sign-status' style='background-color:#a305b6'>迟到</view>
+		<view wx:elif="{{meeting.person_status == 8}}" class='sign-status' style='background-color:#f76260'>缺席</view>
+		<view wx:elif="{{meeting.person_status ==  3}}" class='sign-status' style='background-color:#ff9f00'>早退</view>
+		<view wx:elif="{{meeting.person_status == 2}}" class='sign-status' style='background-color:#09bb07'>已出席</view>
+		<view wx:elif="{{meeting.person_status == 9}}" class='sign-status' style='background-color:#09bb07'>已请假</view>
+
+		<!-- <view wx:else class='sign-status' style='background-color:#09bb07'>{{meeting.user_state}}</view> -->
+	</view>
+
+	<view wx:if="{{meeting.state == 1}}" class='sign-tab'>
+		<view class='modal-mask' catchtouchmove='preventTouchMove' wx:if='{{hidden}}'></view>
+		<view class='modal-container' wx:if='{{hidden}}'>
+			<view class='modal-title'>请输入请假理由</view>
+			<view class='modal-content'>
+				<textarea auto-focus='true' class='modal-input' value='{{leaveReason}}' bindinput='getReason'></textarea>
+			</view>
+			<view class='modal-footer'>
+				<view class='btn-cancel' bindtap='cancel'>取消</view>
+				<view class='btn-confirm' bindtap='confirm'>确定</view>
+			</view>
+		</view>
+		<view wx:if='{{meeting.type == 1}}' class='sign-tab'>
+			<view wx:if='{{meeting.person_status == 0}}' class='sign-tab'>
+				<view bindtap='askForLeave' class='askForLeave' style='box-shadow:0rpx 6rpx 20rpx 4rpx rgba(255,5,0,0.25);'>请假</view>
+				<!-- <view data-meeting-id='{{meeting.meeting_id}}' class='sign-up' style='box-shadow:0rpx 6rpx 20rpx 4rpx rgba(30,255,0,0.25);'>签到</view> -->
+			</view>
+			<view wx:if='{{meeting.person_status == 6}}' class='sign-tab'>
+				<view class='askForLeave' style='background-color:#bfbfbf;'>请假中</view>
+			</view>
+			<view wx:if='{{meeting.person_status == 9}}' class='sign-tab'>
+				<text class='askForLeave' style='background-color:#E64340'>已请假</text>
+			</view>
+		</view>
+		<view wx:if='{{meeting.type == 2}}' class='sign-tab'>
+			<view wx:if='{{meeting.person_status == 7}}' class='sign-tab' style="justify-content: center;">
+				<view bindtap='signUp' class='sign-status' style='box-shadow:0px 6px 20px 4px rgba(30,255,0,0.25); justify-content: center;'>报名</view>
+			</view>
+			<view wx:if='{{meeting.person_status == 5}}' class='sign-tab' style="justify-content: center;">
+				<view bindtap='signUp' class='sign-status' style='box-shadow:0px 6px 20px 4px rgba(30,255,0,0.25); justify-content: center;'>报名审核中</view>
+			</view>
+			<!-- <view wx:if='{{meeting.user_state === "审核中"}}' class='sign-tab' style="justify-content: center;">
+				<view bindtap='signUp' class='sign-status' style='background-color: #00478B'>审核中</view>
+			</view> -->
+			<!-- <view wx:if='{{meeting.user_state === "未签到"}}' class='sign-tab' style="justify-content: center;">
+				<view data-meeting-id='{{meeting.meeting_id}}' bindtap='signMeeting' class='sign-up' style=' box-shadow:0px 6px 20px 4px rgba(30,255,0,0.25);'>报名</view>
+			</view> -->
+      <view wx:if='{{meeting.person_status == 0}}' class='sign-tab' style="justify-content: center;">
+				<view class='sign-status' style='box-shadow:0px 6px 20px 4px rgba(30,255,0,0.25); justify-content: center;'>已报名</view>
+			</view>
+			<!-- <view wx:if='{{meeting.user_state === "已签到"}}' class='sign-tab' style="justify-content: center;">
+				<text class='sign-up' >已签到</text>
+			</view> -->
+		</view>
+	</view>
+
+	<view wx:if="{{meeting.state == 2}}" class='sign-tab'>
+		<view wx:if="{{meeting.type == 1}}" class='sign-tab'>
+			<view wx:if='{{meeting.person_status == -1}}' class='sign-tab'>
+				<view data-meeting-id='{{meeting.meeting_id}}' bindtap='checkInMeeting' class='sign-status'>签到</view>
+			</view>
+      <view wx:if="{{meeting.person_status == 1}}">
+      	<view data-meeting-id='{{meeting.meeting_id}}' bindtap='checkOutMeeting' class='sign-status'>签退</view>
+      </view>
+			<view wx:if='{{meeting.person_status == 9}}' class='sign-tab'>
+				<text class='askForLeave' style='background-color:#E64340'>已请假</text>
+				<!-- <text class='sign-up' style='background-color: #bfbfbf'>签到</text> -->
+			</view>
+			<view wx:if='{{meeting.person_status == 2}}' class='sign-tab' style="justify-content: center;">
+				<text class='sign-up'>已出席</text>
+			</view>
+		</view>
+		<view wx:if="{{meeting.type == 2}}" class='sign-tab'>
+			<view wx:if='{{meeting.person_status == -1}}' class='sign-tab'>
+				<view data-meeting-id='{{meeting.meeting_id}}' bindtap='checkInMeeting' class='sign-status'>签到</view>
+			</view>
+      <view wx:if="{{meeting.person_status == 1}}">
+      	<view data-meeting-id='{{meeting.meeting_id}}' bindtap='checkOutMeeting' class='sign-status'>签退</view>
+      </view>
+			<!-- <view wx:if='{{meeting.person_status == 9}}' class='sign-tab'>
+				<text class='askForLeave' style='background-color:#E64340'>已请假</text>
+			 <text class='sign-up' style='background-color: #bfbfbf'>签到</text> 
+			</view> -->
+			<view wx:if='{{meeting.person_status == 2}}' class='sign-tab' style="justify-content: center;">
+				<text class='sign-up'>已出席</text>
+			</view>
+		</view>
+	</view>
+	<!-- <view wx:if="{{meeting.state == 2&&type==2}}" class='sign-tab'>
+		
+			<view bindtap="checkReason" class='sign-tab' style="justify-content: center;">
+				<text class='askForLeave'>查看原因</text>
+			</view>
+		
+	</view> -->
+	<!-- 签到背景灰色 -->
+	<!-- <view wx:if='{{meeting.status === "未开始"}}' class='sign-tab'>  
+    <view wx:if='{{meeting.state === "未报名"}}' class='sign-tab'>  
+      <view bindtap='signUp' class='sign-status' style='background-color:#00478B'>报名</view>
+    </view>
+
+    <view wx:if='{{meeting.user_state === "已报名"}}' class='sign-tab'>
+      <view class='modal-mask' catchtouchmove='preventTouchMove' wx:if='{{hidden}}'></view>
+      <view class='modal-container' wx:if='{{hidden}}'>
+        <view class='modal-title'>请输入请假理由</view>
+        <view class='modal-content'>
+          <textarea auto-focus='true' class='modal-input' bindinput='getReason'></textarea>
+        </view>
+        <view class='modal-footer'>
+          <view class='btn-cancel' bindtap='cancel'>取消</view>
+          <view class='btn-confirm' bindtap='confirm'>确定</view>
+        </view>
+      </view>
+        <view bindtap='askForLeave' class='askForLeave' style='background-color:#E64340'>请假</view>
+        <view data-meeting-id='{{meeting.meeting_id}}'  bindtap='signMeeting' class='sign-up'>签到</view>
+    </view>
+    <view wx:if='{{meeting.user_state === "报名成功"}}' class='signing' style='background-color:#09bb07'>报名成功</view>
+    <view wx:if='{{meeting.user_state === "已请假"}}' class='signing' style='background-color:#09bb07'>已请假</view>
+    <text bindtap='askForLeave' style='height:100rpx;line-height:100rpx;font-size:24rpx;color:#00478b;float:right;margin-right:30rpx;'>请假</text>   
+    <view wx:if='{{meeting.user_state === "待审核"}}' class='signing' style='background-color:#0082ff'>待审核</view>
+    <text bindtap='signUp' wx:if='{{meeting.user_state === "待审核"}}' style='height:100rpx;line-height:100rpx;font-size:24rpx;color:#00478b;float:right;margin-right:30rpx;'>取消报名</text>    
+  </view> -->
+</view>

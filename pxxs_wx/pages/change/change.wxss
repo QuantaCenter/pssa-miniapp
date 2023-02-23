@@ -1,0 +1,7 @@
+/* pages/change/change.wxss */
+page{
+  background-color: #eeeeee;
+}
+#change-bt[disabled]{
+  background-color: rgba(0, 71, 139, 0.8); 
+} 

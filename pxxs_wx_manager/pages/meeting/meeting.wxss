@@ -1,0 +1,185 @@
+/**index.wxss**/
+
+page {
+  width: 750rpx;
+  background-color: #FFFFFF;
+}
+.input-container {
+  width: 100%;
+  position:fixed;
+  top:0;
+  z-index: 3;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  align-items: center;
+  background-color: #fff;
+}
+.time-picker{
+  width: 100%;
+  height: 66rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.year{
+  width: 100rpx;
+  height: 40rpx;
+  font-size: 34rpx;
+  color: #00478B;
+  line-height: 50rpx;
+  margin-right:20rpx;
+}
+.month{
+  width: 60rpx;
+  height: 40rpx;
+  font-size: 34rpx;
+  color: #00478B;
+  line-height: 50rpx;
+  margin-left:20rpx;
+  margin-right:10rpx;
+  
+}
+.time-selected-icon{
+  width: 14rpx;
+  height: 30rpx;
+  position: relative;
+  left: 10rpx;
+}
+.input-item {
+  width: 700rpx;
+  height: 66rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  float: left;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.input {
+  width: 700rpx;
+  height: 66rpx;
+  background-color: rgba(237, 237, 237, 1);
+  font-size: 34rpx;
+  border-radius: 20rpx;
+  float: left;
+  text-align: center;
+  border: 1px;
+}
+.input-icon {
+  left: 10rpx;
+  z-index: 10;
+}
+
+.term {
+  font-family: SourceHanSansCN-Regular;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #00478b;
+  margin-right: 55rpx;
+}
+.meeting-container {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  align-items: center;
+  overflow: hidden;
+  border-top: 4rpx solid #EEEEEE;
+  padding-top: 20rpx;
+}
+
+.meeting-img {
+  width:690rpx;
+  height:340rpx;
+  border-radius:20rpx;
+}
+
+.meeting-title {
+  width: 680rpx;
+  color: #333;
+  font-size: 50rpx;
+  padding: 38rpx 38rpx;
+}
+
+/*  */
+
+.elective {
+  border: 2rpx solid #09bb07;
+  color: #09bb07;
+}
+
+.must {
+  color: #f76260;
+  border: 2rpx solid #f76260;
+}
+.add{
+  width:70rpx;
+  height:40rpx; 
+  border-radius:10rpx; 
+  font-size:28rpx; 
+  text-align: center; 
+  float: right; 
+  margin-right: 50rpx;
+  border: 2rpx solid #999999;
+  color: #999999;
+}
+.meeting-detail {
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.item-container {
+  width: 50%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+}
+
+.item-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 38rpx;
+}
+
+/* .item-icon:first-child{
+  width: 40rpx;
+}
+.item-icon:nth-child(4){
+  width: 30rpx;
+} */
+
+.item-text {
+  font-size: 28rpx;
+  color: #666;
+  margin-left: 23rpx;
+}

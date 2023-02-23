@@ -1,0 +1,232 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.4.0",
+  "appid": "wx2113638f7031a39f",
+  "projectname": "pxxs_wx_manager",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "index",
+          "pathName": "pages/index/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "detail",
+          "pathName": "pages/detail/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "me",
+          "pathName": "pages/me/me",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "set",
+          "pathName": "pages/set/set",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "detail",
+          "pathName": "pages/detail/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "/publish",
+          "pathName": "pages/publish/publish",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "nameList",
+          "pathName": "pages/nameList/nameList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "selectMember",
+          "pathName": "pages/selectMember/selectMember",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "attend",
+          "pathName": "pages/attend/attend",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "department",
+          "pathName": "pages/department/department",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 12,
+          "name": "meetingCheck",
+          "pathName": "pages/meetingCheck/meetingCheck",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "meeting",
+          "pathName": "pages/meeting/meeting",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "detail",
+          "pathName": "pages/detail/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "leaveCheck",
+          "pathName": "pages/leaveCheck/leaveCheck",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "leaveDetail",
+          "pathName": "pages/leaveDetail/leaveDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "attend",
+          "pathName": "pages/attend/attend",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/type/type",
+          "pathName": "pages/type/type",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "type",
+          "pathName": "pages/type/type",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/memberDetail/memberDetail",
+          "pathName": "pages/memberDetail/memberDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 21,
+          "name": "feedback",
+          "pathName": "pages/feedback/feedback",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "feedbackDetail",
+          "pathName": "pages/feedbackDetail/feedbackDetail",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

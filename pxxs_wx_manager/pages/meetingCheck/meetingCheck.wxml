@@ -1,0 +1,112 @@
+<!--pages/detail/detail.wxml-->
+<view class='container' style='position:relative;'>
+	<image class='meeting-img' mode='aspectFill' src='../img/logo.jpg'></image>
+	<view class='cover'>
+		<view class='meeting-name'>{{meeting.name}}</view>
+	</view>
+	<view catchtap='fold' class='meeting-states'>
+		<text class='content-text'>内容简介：<text wx:if='{{is_folded && need_folded}}' class='floded'>{{folded}}<text class='folded-text'>详情</text></text>
+		<text wx:if='{{!need_folded}}' class='floded'>{{meeting.introduction}}</text>
+		<text wx:if='{{!is_folded && need_folded}}' class='floded'>{{meeting.introduction}} <text class='folded-text'> 收起</text></text></text>
+
+	</view>
+	<view class='department-container'>
+		<view class='department'>
+			<text class='department-text'>主办单位：<text class='department-content'>{{meeting.hold_unit}} </text></text>
+			<text class='department-text'>派出单位：<text class='department-content'>{{meeting.send_unit}} </text></text>
+		</view>
+	</view>
+</view>
+<view class='info-container'>
+	<view class='detail'>
+		<text class='item-style'>级别：<text class='item-content'>{{meeting.level}}</text>
+		</text>
+		<view wx:if="{{pageType === 'check'}}" class="{{meeting.type == 1 ?  'must' : 'elective'}}" style='width:116rpx; height:40rpx; border-radius:10rpx; font-size:28rpx; text-align: center; position:absolute; margin: 10rpx 0 0 220rpx'>{{meeting.type == 1 ? 'General' : 'Specific'}}</view>
+		<view wx:if="{{pageType !== 'check'}}" class="label {{meeting.state == 1 ? 'elective' : meeting.state == 0 ? 'ing' : 'must'}}">{{stateOption[meeting.state]}}</view>
+		<text class='item-style'>类别：<text class='item-content'>{{meeting.category}}</text>
+		</text>
+		<text class='item-style'>学时：<text class='item-content'>{{meeting.score}}</text></text>
+		<text class='item-style'>开始时间：<text class='item-content'>{{meeting.starttime}}</text></text>
+		<text  class='item-style'>结束时间：<text class='item-content'>{{meeting.endtime}}</text></text>
+		<text class='item-style'>地点：<text class='item-content'>{{meeting.position}}</text></text>
+	</view>
+	<view class='modal-mask' catchtouchmove='preventTouchMove' wx:if='{{hidden}}'></view>
+	<view class='modal-container' wx:if='{{hidden}}'>
+		<view class='modal-title'>请输入理由</view>
+		<view class='modal-content'>
+			<textarea auto-focus='true' placeholder="" class='modal-input' value='{{reason}}' bindinput='getReason'></textarea>
+		</view>
+		<view class='modal-footer'>
+			<view class='btn-cancel' bindtap='cancel'>取消</view>
+			<view class='btn-confirm' bindtap='checkFail'>确定</view>
+		</view>
+	</view>
+	<view class='check-tab' wx:if="{{rank==1}}">
+		<view class='tab-item' bindtap='askForReason' style='background-color:#E64340;box-shadow:0rpx 2rpx 10rpx 2rpx #FF0500;'>不通过</view>
+		<view class='tab-item' bindtap='checkPass' style='background-color:#1EBA09;box-shadow:0rpx 2rpx 10rpx 2rpx #1EFF00;'>通过</view>
+	</view>
+	<view class="check-tab" wx:elif="{{ rank==2 }}" style="justify-content: center;">
+		<view class="tab-item" wx:if="{{meeting.state==2}}" bindtap="showReason" style='background-color:#E64340;box-shadow:0rpx 2rpx 10rpx 2rpx #FF0500;'>查看原因</view>
+		<view wx:else class="tab-item" style='background-color:#1EBA09;box-shadow:0rpx 2rpx 10rpx 2rpx #1EFF00;'>{{stateOption[meeting.state]}}</view>
+	</view>
+</view>
+<view wx:if="{{meeting.pic1 && meeting.pic1 !== null}}" class='pic-container'>
+	<view class='detail'>
+		<text class='item-style'>相关图片</text>
+		<view class='pic-box'>
+			<view wx:if="{{meeting.pic1 !== null}}">
+				<image src="{{url + meeting.pic1}}" class="img"></image>
+			</view>
+			<view wx:if="{{meeting.pic2 !== null}}">
+				<image src="{{url + meeting.pic2}}" class="img"></image>
+			</view>
+			<view wx:if="{{meeting.pic3 !== null}}">
+				<image src="{{url + meeting.pic3}}" class="img"></image>
+			</view>
+			<view wx:if="{{meeting.pic4 !== null}}">
+				<image src="{{url + meeting.pic4}}" class="img"></image>
+			</view>
+		</view>
+	</view>
+</view>
+<view class='mem-container'>
+	<view wx:if='{{meeting.type == 2}}' class="sign-container">
+		<!-- <view class='sign-box'>
+      <text class='item-style'>报名人数: <text style="color: #666666">{{meeting.count}}</text></text>
+      <view class='select-people' bindtap='toSelect'>
+        <text>人员选择</text>
+        <image src='../img/path_blue.png' style='width:12rpx; height: 20rpx; margin-left:12rpx; margin-top:12rpx;'></image>
+      </view>
+    </view> -->
+		<view class='detail'>
+			<text class='item-style'>已选择单位</text>
+			<view class='member-box'>
+				<view class='info-row'>
+					<view class='item-head'>单位</view>
+				</view>
+				<view wx:for='{{tableData}}' class='info-row'>
+					<view class='info-department'>{{item.major}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view wx:if="{{meeting.type === 1}}" class='mem-container'>
+		<view class='detail'>
+			<text class='item-style'>已选择人员</text>
+			<view class='member-box'>
+				<view class='info-row'>
+					<view class='item-head'>单位</view>
+					<view class='item-head'>姓名</view>
+				</view>
+				<view wx:for='{{tableData}}' class='info-row'>
+					<view class='info-department'>{{item.department}}</view>
+					<view class='info-box'>
+						<view>
+							<view class='info-item' wx:for='{{item.info}}' wx:key='user_id' wx:for-item='info'>{{info.username}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

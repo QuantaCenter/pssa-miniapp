@@ -1,0 +1,31 @@
+<!--pages/type/type.wxml-->
+<view wx:if='{{pageType === "publish"}}' class="container">
+  <view class="type-container" bindtap="toMust">
+    <text class="text">General</text>
+    <image class='arrow' src='../img/path_small.png'></image>
+  </view>
+  <view class="type-container" bindtap="toElect">
+    <text class="text">Specific</text>
+    <image class='arrow' src='../img/path_small.png'></image>
+  </view>
+</view>
+<view wx:if='{{pageType === "department"}}' class="container">
+  <view class="type-container" bindtap="toHost">
+    <text class="text">按主办单位查看</text>
+    <image class='arrow' src='../img/path_small.png'></image>
+  </view>
+  <view class="type-container" bindtap="toSend">
+    <text class="text">按派出单位查看</text>
+    <image class='arrow' src='../img/path_small.png'></image>
+  </view>
+</view>
+<view wx:if='{{pageType === "meetingCheck"}}' class="container">
+  <view class="type-container" bindtap="toMeetingCheck">
+    <text class="text">会议审核</text>
+    <image class='arrow' src='../img/path_small.png'></image>
+  </view>
+  <view class="type-container" bindtap="toAddCheck">
+    <text class="text">补录审核</text>
+    <image class='arrow' src='../img/path_small.png'></image>
+  </view>
+</view>

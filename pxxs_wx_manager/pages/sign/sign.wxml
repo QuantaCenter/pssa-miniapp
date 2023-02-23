@@ -1,0 +1,30 @@
+<!--pages/sign/sign.wxml-->
+<view class='container'>
+
+	<view class='member-box'>
+		<view class='info-row'>
+      <view class='item-head'>
+        <checkbox value="{{checked}}" checked="{{checked}}" 
+        bindtap="selectAll"></checkbox>
+      </view>
+			<view class='item-head'>姓名</view>
+			<view class='item-head'>单位</view>
+		</view>
+		<view class='info-row' wx:for="{{tableData}}" wx:key="user">
+			
+        <view class="info-item">
+          <checkbox value="{{item.checked}}" checked="{{item.checked}}"
+            bindtap="select" data-user="{{item.user}}"
+          ></checkbox>
+        </view>
+				<view class='info-item'>{{item.username}}</view>
+				<view class='info-item'>{{item.major}}</view>
+		
+		</view>
+	</view>
+  <view class="btn-box">
+    <button type="primary" bindtap="handleGrant">通过</button>
+  </view>
+	<view style='width:100%;height:40rpx;font-size:28rpx;color:#576b95;text-align:center;line-height:40rpx;'>Quanta(量子)信息技术服务中心</view>
+	<view style='width:100%;height:30rpx;font-size:20rpx;color:#b2b2b2;text-align:center;line-height:30rpx;'>Copyright © 2017 - 2022 广外培训学时</view>
+</view>

@@ -1,0 +1,19 @@
+<!--pages/set/set.wxml-->
+<view class='container' style='background-color: #EEEEEE'>
+    <view style='width:100%; height: 20rpx; background-color: #EEEEEE'></view>
+    <navigator url='../change/change' class="change">
+        <image style='width:46rpx; height:46rpx; margin-left:40rpx;' src='img/7.png'></image>
+        <text style=' font-family: SourceHanSansCN-Regular;font-size: 38rpx;color: #333333;margin-left:34rpx;'>修改密码</text>
+        <image style='width:16rpx;height:26rpx;margin-left:430rpx;' src='img/16.png'></image>
+    </navigator>
+    <navigator url='../feedback/feedback' class="feedback">
+        <image style='width:46rpx;height:46rpx;margin-left:40rpx;' src='img/feedback.png'></image>
+        <text style=' font-family: SourceHanSansCN-Regular;font-size: 38rpx;color: #333333;margin-left:34rpx;'>反馈信息</text>
+        <image style='width:16rpx;height:26rpx;margin-left:430rpx;' src='img/16.png'></image>
+    </navigator>
+
+    <button bindtap='logout' disabled='{{logouted}}' style='width:700rpx;height:100rpx;margin-top:66rpx; border-radius:50rpx;background-color:#FBFAFC; font-family: SourceHanSansCN-Regular;font-size: 38rpx;color: #00478b;text-align:center;line-height:100rpx;'>退出登录</button>
+    <view style='width:100%; height: 820rpx'></view>
+    <view style='width:100%;height:40rpx;font-size:28rpx;color:#576b95;text-align:center;line-height:40rpx;position:fixed;bottom:50rpx;'>Quanta(量子)信息技术服务中心</view>
+    <view style='width:100%;height:30rpx;font-size:20rpx;color:#b2b2b2;text-align:center;line-height:30rpx;position:fixed;bottom:10rpx;'>Copyright © 2017 - 2022 广外思政学时</view>
+</view>

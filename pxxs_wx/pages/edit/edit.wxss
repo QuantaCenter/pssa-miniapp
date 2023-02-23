@@ -1,0 +1,202 @@
+/* pages/teacher/publish/publish.wxss */
+.info-item{
+  width: 720rpx;
+  height: 90rpx;
+  border-bottom: 1rpx solid #efefef;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: center;
+  -webkit-align-items: center;
+  align-self: flex-end;
+  -webkit-align-self: flex-end;
+}
+.item-text{
+  width: 150rpx;
+  text-align: left;
+  color: #000000;
+  font-size: 34rpx;
+}
+.item-content{
+  width: 500rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #333333;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}
+.descript{
+  width: 500rpx;
+  height: 152rpx;
+  color: #b2b2b2;
+  font-size: 34rpx;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+.img-container{
+  width: 100%;
+  height: 180rpx;
+  padding-left: 30rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  align-items: center;
+  border-bottom: 1rpx solid #efefef;
+}
+.img{
+  height: 116rpx;
+  width: 116rpx;
+  margin-left: 10rpx;
+}
+.college-container{
+  width: 690rpx;
+  height: 100%;
+  border: 1rpx solid #eeeeee;
+  margin-top: 30rpx;
+  margin-bottom: 120rpx;
+}
+.row-item{
+  width: 100%;
+  height: auto;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.college-item{
+  width: 230rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.grade-container{
+  width: 230rpx;
+  height: auto;
+}
+.grade-item{
+  width: 100%;
+  height: 70rpx;
+  border-bottom: 1rpx solid #eeeeee;
+  text-align: center;
+  border-left: 1rpx solid #eeeeee;
+  line-height: 70rpx;
+  font-size: 28rpx;
+}
+.select-container{
+  width: 230rpx;
+  height: auto;
+}
+.select-item{
+  width: 100%;
+  height: 70rpx;
+  border-bottom: 1rpx solid #eeeeee;
+  border-left: 1rpx solid #eeeeee;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.checkbox{
+  width: 30rpx;
+  height: 30rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  border: 1rpx solid #eeeeee;
+}
+.check{
+  width: 30rpx;
+  height: 22rpx;
+}
+.submit{
+  width: 300rpx;
+  height: 90rpx;
+  background-color: #00478B;
+  color: #ffffff;
+  font-size: 36rpx;
+  text-align: center;
+  float: left;
+  line-height: 100rpx;
+  border-radius:45rpx;
+  box-shadow:0px 6px 20px 4px rgba(0,130,255,0.25);
+  margin: 0 0 15rpx 0;
+}
+.select-people{
+  width: 550rpx;
+  height: 45rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 50rpx;
+  color: #00478B;
+  font-size: 30rpx;
+}
+.tick{
+  width: 26rpx;
+  height: 20rpx;
+  position: relative;
+}
+.clear{
+  width: 30rpx;
+  height: 80rpx;
+  margin-top: 30rpx;
+  margin-right: 50rpx;
+  align-self: center;
+  z-index: 999;
+}
+.intro-item{
+  width: 720rpx;
+  border-bottom: 1rpx solid #efefef;
+  padding-top: 20rpx;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-self: flex-end;
+  -webkit-align-self: flex-end;
+  margin-top: 20rpx;
+}
+.pic-box{
+  height: 116rpx;
+  width:126rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.delete{
+  width:30rpx;
+  height:30rpx;
+  border-radius:6rpx; 
+  margin-right: 2rpx;
+  position: relative;
+  bottom: 146rpx;
+  left: 106rpx
+} 

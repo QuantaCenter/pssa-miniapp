@@ -1,0 +1,93 @@
+/* pages/index/index.wxss */
+.gdufs-icon{
+  width: 180rpx;
+  height: 180rpx;
+  margin-top: 90rpx;
+}
+.username-container{
+  width: 640rpx;
+  height: 102rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  margin-top: 80rpx;
+}
+.username-text{
+  width: 100%;
+  height: 36rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 34rpx;
+  color: #999999;
+}
+.username-input{
+  width: 100%;
+  height: 36rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 32rpx;
+  color: #333333;
+  border-bottom: 1px #888888 solid;
+}
+.password-container{
+  width: 640rpx;
+  height: 102rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 80rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.password-text{
+  width: 100%;
+  height: 36rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 34rpx;
+  color: #999999;
+}
+.password-input{
+  width: 100%;
+  height: 36rpx;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 32rpx;
+  color: #333333;
+  border-bottom: 1px #888888 solid;
+}
+#login-bt{
+  width: 640rpx;
+  height: 100rpx;
+  background-color: #00478b;
+  color: #ffffff;
+  font-size: 40rpx;
+  font-family: SourceHanSansCN-Regular;
+  margin-top: 60rpx;
+  border-radius: 50rpx;
+  text-align: center;
+  line-height: 100rpx;
+  border: none;
+}
+.login-bt-hover{
+   background-color: rgba(0, 71, 139, 0.8); 
+}
+#login-bt[disabled]{
+   background-color: rgba(0, 71, 139, 0.8); 
+}
+.password-error-text{
+  position: absolute;
+  right: 0;
+  bottom: 4rpx;
+  color: #e40b0b;
+  font-size: 32rpx;
+  font-family: SourceHanSansCN-Regular;
+}
+.error-icon{
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  right: 136rpx;
+  bottom: 6rpx;
+  border-radius: 18rpx;
+}

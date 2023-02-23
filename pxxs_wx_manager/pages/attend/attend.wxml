@@ -1,0 +1,53 @@
+<!--pages/teacher/sign_list/sign_list.wxml-->
+<view class='container'>
+  
+  <view class='info'>
+      <view wx:if='{{type == 1}}'>请假人数：{{info.ask_leave}}</view>
+      <view wx:if='{{state == 3}}' style='margin-top:10rpx;'>缺席人数：{{info.absence}}</view>
+      <view style='margin-top:10rpx;'>签到人数：{{info.attend}}</view>
+  </view>
+
+  <view class='info-container'>
+    <view class='info-row'>
+      <view class='item-head'>姓名</view>
+      <view class='item-head'>单位</view>
+      <view class='item-head'>出勤情况</view>
+    </view>
+    <view wx:for='{{data}}'  wx:key='index' class='info-row'>
+      <view class='info-item'>{{item.name}}</view>
+      <view class='info-item'>{{item.major}}</view>
+      <view wx:if='{{!editing}}' class='info-item'>
+        <view wx:if="{{state == 3 && item.status == 8}}" style='color: #F76260'>缺席</view>
+        <view wx:elif="{{state == 3 && item.status === 9}}" style='color: #1EBA09'>请假</view>
+        <view wx:elif="{{state == 3 && item.status === 2}}"  style='color: #888888'>出席</view>
+        <view wx:elif="{{state== 2 && item.status == -1}}"  style='color:  #F76260'>已签退</view>
+        <view wx:elif="{{state== 2 && item.status == 1}}"  style='color: #888888'>已签到</view>
+        <view wx:elif="{{state ==2  && item.status == 9}}"  style='color: #E5E5E5'>请假</view>
+        <view wx:else>{{stateOption[item.status]}}</view>
+      </view>
+      <view wx:if='{{editing}}'>
+        <view wx:if="{{item.state !== '请假'}}" class='info-item'>
+          <picker bindtap='selectOn' data-index='{{list_index}}' bindchange='getStatus' range='{{term[list_index]}}' bindcancel='selectOn' value='{{term_index[list_index]}}'>
+            <view class='check-content'>{{term[list_index][term_index[list_index]]}}</view>
+          </picker>
+          <image catchtap='cancel' data-index='{{list_index}}' class='check-icon' src='../img/choose.png'></image>
+        </view>
+        <view  wx:if="{{item.state === '请假'}}" class='info-item' style='color: #E5E5E5'>{{item.state}}</view>
+      </view>
+
+    <!-- <view wx:if='{{editing}}'  wx:for='{{member}}' wx:for-index='list_index' wx:key='{{item.user_id}}' class='info-row'>
+      <view class='info-item'>{{item.name}}</view>
+      <view class='info-item'>{{item.major}}</view>
+      <view class='info-item'>
+        <picker bindtap='selectOn' data-index='{{list_index}}' bindchange='changeState' range='{{term[list_index]}}' bindcancel='selectOn' value='{{term_index[list_index]}}'>
+          <view class='check-content'>{{term[list_index][term_index[list_index]]}}</view>
+        </picker>
+        <image catchtap='cancel' data-index='{{list_index}}' class='check-icon' src='../img/choose.png'></image>
+      </view>
+     </view> -->
+    </view>
+  </view>
+
+  <!-- <view bindtap='change' wx:if='{{state === "已结束" && editing}}' style='position: fixed;bottom:0;width: 100%;height:100rpx;font-size:46rpx;color:#FDFDFD;text-align:center;line-height:100rpx;border-top:solid 1px #eeeeee;background-color:#00478B;'>保存</view>
+  <view bindtap='edit' wx:if='{{state === "已结束" && !editing}}' style='position: fixed;bottom:0;width: 100%;height:100rpx;font-size:46rpx;color:#FDFDFD;text-align:center;line-height:100rpx;border-top:solid 1px #eeeeee;background-color:#1EBA09;'>编辑</view> -->
+</view>

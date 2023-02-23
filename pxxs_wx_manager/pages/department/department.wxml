@@ -1,0 +1,82 @@
+<!--pages/teacher/studentSearch/studentSearch.wxml-->
+<view class='container'>
+  <view class='input-container'>
+    <view class='time-picker'>
+      <picker class='year' value='{{year_index}}' range='{{years}}' bindchange="switchYear">
+        <text style='color: #00478b'>{{years[year_index]}}</text>
+        <image class='time-selected-icon' src='../img/2.png'></image>
+      </picker>年
+      <picker class='month' value='{{month_index}}' range='{{months}}' bindchange="switchMonth">
+        <text style='color: #00478b'>{{months[month_index]}}</text>
+        <image class='time-selected-icon' src='../img/2.png'></image>
+      </picker>月
+    </view>
+    <view class='input-item'>
+      <input bindblur='search' bindfocus='searchFocus' bindinput='getSearchKey' class='input' placeholder='{{pageType === "1" ? "主办单位" : "派出单位"}}'></input>
+      <icon type='search' size='16' class='input-icon' wx:if='{{searchIcon}}' style='width:32rpx; height: 32rpx; position:absolute; left:260rpx;'></icon>
+    </view>
+  </view>
+  <view class='info-container'>
+    <view class='info-row'>
+      <view wx:if='{{pageType == 1}}' class='item-head' style="width: 110rpx">
+        <text>主办\n单位</text>
+      </view>
+      <view wx:if='{{pageType == 2}}' class='item-head' style="width: 110rpx">
+        <text>派出\n单位</text>
+      </view>
+      <view class='item-head'>发布会议总数</view>
+      <view class='item-head'>国家级会议数</view>
+      <view class='item-head'>省市级会议数</view>
+      <view class='item-head'>校级会议数</view>
+      <view class='item-head'>
+        <text>出席\n人数</text>
+      </view>
+      <view class='item-head'>总学时</view>
+    </view>
+    <view wx:for='{{info.college}}' class='info-row'>
+      <view wx:if='{{pageType == 1}}' class='info-item' style="width: 110rpx" data-name='{{item.department}}' bindtap='toDetail' >{{item.department}}</view>
+      <view wx:if='{{pageType == 2}}' class='info-item' style="width: 110rpx">
+        <text class='text' style="width: 110rpx" data-name='{{item.sending}}' bindtap='toDetail'>{{item.sending}}</text>
+      </view>
+      <view class='info-item'>{{item.meeting}}</view>
+      <view class='info-item'>{{item.country}}</view>
+      <view class='info-item'>{{item.province}}</view>
+      <view class='info-item'>{{item.school}}</view>
+      <view class='info-item'>{{item.attend}}</view>
+      <view class='info-item'>{{item.period}}</view>
+    </view>
+    
+  </view>
+  <view class="num-container">
+      <view class="div-container">
+        <view class="div"></view>
+        <text style="margin-left:10rpx">总计</text>
+      </view>
+      <view class="item-container">
+        <view class="num-item">
+          <view class="num">{{info.all_period}}</view>
+          <text class="word">总学时数</text>
+        </view>
+        <view class="item-div"></view>
+        <view class="num-item">
+          <view class="num">{{info.all_meeting}}</view>
+          <text class="word">会议总数</text>
+        </view>
+        <view class="item-div"></view>
+        <view class="num-item">
+          <view class="num">{{info.all_country}}</view>
+          <text class="word">国家级会议总数</text>
+        </view>
+        <view class="item-div"></view>
+        <view class="num-item">
+          <view class="num">{{info.all_province}}</view>
+          <text class="word">省市级会议总数</text>
+        </view>
+        <view class="item-div"></view>
+        <view class="num-item">
+          <view class="num">{{info.all_school}}</view>
+          <text class="word">校级会议总数</text>
+        </view>
+      </view>
+    </view>
+</view>

@@ -1,0 +1,107 @@
+<!--pages/me/me.wxml-->
+
+<view class='container'>
+	<navigator url='../set/set' class='userinfo-container'>
+		<text class='username'>{{userInfo.username}}</text>
+		<text class='college'>{{userInfo.number}}</text>
+		<text class='college'>{{userInfo.major}}</text>
+		<image class='setting-bt' src='img/16.png'></image>
+	</navigator>
+	<view class='attendance-container'>
+		<view class='top-attend-container'>
+			<view class='attendance-situation'>
+				<image class='attendance-icon' src='img/icon1.png'></image>
+				<text style='margin-left:10rpx;'>出勤情况</text>
+			</view>
+			<picker class='attendance-time' value='{{term_index}}' range='{{terms}}' bindchange='switchTerm'>
+				<text style='color: #00478b'>{{terms[term_index]}}</text>
+				<image class='time-selected-icon' src='img/2.png'></image>
+			</picker>
+		</view>
+		<view class='detail-container'>
+			<view class='detail-box'>
+				<text class='attend-time'>{{attendInfo.score||0}}</text>
+				<text class='attend-text'>学时数</text>
+			</view>
+			<view class='detail-box'>
+				<text class='attend-time'>{{attendInfo.attend||0}}</text>
+				<text class='attend-text'>出席</text>
+			</view>
+			<view class='detail-box'>
+				<text class='attend-time'>{{attendInfo.ask_leave||0}}</text>
+				<text class='attend-text'>请假</text>
+			</view>
+			<view class='detail-box'>
+				<text class='attend-time'>{{attendInfo.absence||0}}</text>
+				<text class='attend-text'>缺席</text>
+			</view>
+		</view>
+	</view>
+
+	<view class='meeting-container'>
+		<view class='top-container'>
+			<image class='meeting-icon' src='img/5.png'></image>
+			<text class='attendance-text'>已报名会议</text>
+		</view>
+		<view style='margin-top:20rpx;margin-bottom:20rpx;text-align:center;' wx:if="{{sign_meeting.length === 0}}">暂无已报名会议</view>
+		<view data-mid='{{item.id}}' data-type='{{item.type}}' wx:for='{{sign_meeting}}' wx:key="item.meeting_id" class='meeting-container' bindtap="toDetail">
+			<image mode='aspectFill' class='meeting-img' src='./img/logo.jpg'></image>
+			<view class='meeting-title'>{{item.name}}</view>
+			<view class="{{item.type == 1 ? 'mandatory' : 'elective'}}" data-type='item.type' style='width:140rpx; height:40rpx; border-radius:10rpx; font-size:28rpx; text-align: center; float: right; margin-left: 540rpx;'>{{item.type == 1? 'General' : 'Specific'}}</view>
+			<view class='meeting-detail'>
+				<view class='item-container'>
+					<image class='item-icon' src='./img/tag.png'></image>
+					<view class='item-text'>{{item.level}}</view>
+				</view>
+				<view class='item-container'>
+					<image class='item-icon' src='./img/count.png'></image>
+					<view class='item-text'>{{item.score}}学时</view>
+				</view>
+				<view class='item-container' style="width:100%">
+					<image class='item-icon' src='./img/6.png'></image>
+					<view class='item-text'>{{item.starttime}} 至 {{item.endtime}}</view>
+				</view>
+				<view class='item-container' style='width:100%'>
+					<image class='item-icon' src='./img/15.png'></image>
+					<view class='item-text'>{{item.position}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view class='meeting-container'>
+		<view class='top-container'>
+			<image class='meeting-icon' src='img/5.png'></image>
+			<text class='attendance-text'>已结束会议</text>
+		</view>
+		<view wx:if='{{end_meeting.length === 0}}' style='margin-top:20rpx; margin-bottom:20rpx; text-align: center'>暂无已结束会议</view>
+		<view data-mid='{{item.meeting_id}}' wx:for='{{end_meeting}}' wx:key="item.meeting_id" bindtap="toDetail" class='meeting-container'>
+			<image mode='aspectFill' class='meeting-img' src='./img/logo.jpg'></image>
+			<view class='meeting-title'>{{item.name}}</view>
+			<view class="{{item.type == 1 ? 'mandatory' : 'elective'}}" data-type='item.type' style='width:140rpx; height:40rpx; border-radius:10rpx; font-size:28rpx; text-align: center; float: right; margin-left: 540rpx;'>{{item.type == 1? 'General' : 'Specific'}}</view>
+			<view class='meeting-detail'>
+				<view class='item-container'>
+					<image class='item-icon' src='./img/tag.png'></image>
+					<view class='item-text'>{{item.level}}</view>
+				</view>
+				<view class='item-container'>
+					<image class='item-icon' src='./img/count.png'></image>
+					<view class='item-text'>{{item.period}}学时</view>
+				</view>
+				<view class='item-container'>
+					<image class='item-icon' src='./img/6.png'></image>
+					<view class='item-text'>{{item.year}}年{{item.month}}月{{item.day}}日</view>
+				</view>
+				<view class='item-container'>
+					<image class='item-icon' src='./img/8.png'></image>
+					<view class='item-text'>{{item.begin_hour}}:{{item.begin_minute}}-{{item.end_hour}}:{{item.end_minute}}</view>
+				</view>
+				<view class='item-container' style='width:100%'>
+					<image class='item-icon' src='./img/15.png'></image>
+					<view class='item-text'>{{item.position}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>

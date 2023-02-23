@@ -1,0 +1,48 @@
+/* pages/teacher/index/index.wxss */
+page{
+  background-color: #EEEEEE
+}
+.tab-item{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #eeeeee;
+  margin-top: 1rpx;
+  
+}
+.icon-container{
+  display: flex;
+  flex-direction: row;
+}
+.tab-style{
+  background-color: #ffffff;
+}
+.icon{
+  width: 46rpx;
+  height: 46rpx;
+  margin-left: 40rpx;
+}
+.tab-name{
+  font-size: 38rpx;
+	color: #333333;
+  margin-left: 36rpx;
+}
+.arrow{
+  width: 16rpx;
+  height: 26rpx;
+  margin-right: 40rpx;
+}
+.tab-container{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #eeeeee;
+}

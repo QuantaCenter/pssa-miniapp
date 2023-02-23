@@ -1,0 +1,113 @@
+/* pages/sign/sign.wxss */
+page{
+  background-color: #EEEEEE
+}
+.tab-container{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #ffffff;
+  margin-top: 1rpx;
+}
+.tab-name{
+  width: 600rpx;
+  font-size: 38rpx;
+	color: #333333;
+  margin-left: 36rpx;
+}
+.arrow{
+  width: 16rpx;
+  height: 26rpx;
+  margin-right: 40rpx;
+}
+
+.mem-container {
+  width: 100%;
+  margin-top: 4rpx;
+  padding-bottom: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-bottom: 4rpx solid #EEEEEE;
+}
+.member-box {
+  width: 600rpx;
+  height: 100%;
+  border-top: solid 1rpx #e5e5e5;
+  border-left: solid 1rpx #e5e5e5;
+  margin-top: 4rpx;
+  align-self: center;
+}
+
+.info-row {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: solid 1rpx #e5e5e5;
+  border-right: solid 1rpx #e5e5e5;
+  padding: 10rpx 0;
+}
+
+.item-head {
+  width: 200rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size: 30rpx;
+  color: #00478b;
+  text-align: center;
+  border-right: solid 1rpx #e5e5e5;
+}
+
+
+.info-item {
+  width: 200rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24rpx;
+  color: #333;
+  border-top: solid 1rpx #e5e5e5;
+  border-left: solid 1rpx #e5e5e5;
+  border-right: solid 1rpx #e5e5e5;
+}
+
+.btn-box{
+  text-align: center;
+  margin: 20rpx 0;
+}
+
+.info-box {
+  width: 200rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  text-align: center;
+  font-size: 26rpx;
+  color: #000;
+}

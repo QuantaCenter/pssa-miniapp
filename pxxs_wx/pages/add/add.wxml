@@ -1,0 +1,19 @@
+<!--pages/add/add.wxml-->
+<view class='container'>
+  <view class='meeting-container' data-mid="{{item.meeting_id}}" wx:for="{{meetings}}" wx:key="item.meeting_id" bindtap="toDetail">
+    <view class='title-container'>
+      <text class='meeting-title'>{{item.name}}</text>
+      <view class='meeting-state {{item.state === "已通过" ? "pass": item.state === "未通过" ? "fail":"check"}}'>{{item.state}}</view>
+    </view>
+    <view class='time-container'>
+      <view class='period'>
+        <text style='color:#333333'>学时:<text style="margin-left: 10rpx">{{item.period}}</text></text>
+        </view>
+      <view class='date'>
+      <text style='color:#333333'>时间:<text style="margin-left: 10rpx">{{item.b_year}}-{{item.b_month}}-{{item.b_day}} 至 {{item.e_year}}-{{item.e_month}}-{{item.e_day}}</text></text> 
+      
+      </view>
+    </view>
+  </view>
+</view>
+<image src='./img/fab.png' class='edit' bindtap='edit'></image>

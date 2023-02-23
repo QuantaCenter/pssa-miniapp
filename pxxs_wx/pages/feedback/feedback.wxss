@@ -1,0 +1,106 @@
+/* pages/feedback/feedback.wxss */
+.title-container{
+  width: 620rpx;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+}
+.content-container{
+  width: 620rpx;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+}
+.pic-container{
+  width: 620rpx;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+}
+.item-text{
+  font-size:40rpx;
+  font-family:Source Han Sans CN;
+  color: #666666;
+  margin-top: 40rpx
+} 
+.item-title{
+  width: 620rpx;
+  height: 80rpx; 
+  font-size:32rpx;
+  font-family:Source Han Sans CN;
+  color: #666666;
+  border:1rpx solid rgba(198,198,198,1);
+  border-radius:6rpx;
+  margin-top: 24rpx;
+  padding-left: 26rpx
+} 
+.item-content{
+  width: 620rpx;
+  height: 240rpx; 
+  font-size:32rpx;
+  font-family:Source Han Sans CN;
+  color: #C6C6C6;
+  border:1rpx solid rgba(198,198,198,1);
+  border-radius:6rpx;
+  margin-top: 24rpx;
+  padding-left: 26rpx;
+  padding-top: 24rpx
+} 
+.pic-box{
+  width: 100%;
+  padding-left: 30rpx;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 30rpx 0 0 28rpx
+}
+.img{
+  width:240rpx;
+  height:180rpx;
+  border:1rpx solid rgba(198,198,198,1);
+  border-radius:6rpx;
+  margin: 0 10rpx 10rpx 0
+}
+.delete{
+  width:30rpx;
+  height:30rpx;
+  border-radius:6rpx;
+  margin-right: 2rpx;
+  position: relative;
+  right: 14px;
+  bottom: 166rpx;
+}
+.submit {
+  width: 300rpx;
+  height: 90rpx;
+  background-color: #00478B;
+  color: #ffffff;
+  font-size: 32rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 25rpx;
+  line-height: 88rpx;
+  border-radius:45rpx;
+  box-shadow:0rpx 6rpx 20rpx 4rpx rgba(0,130,255,0.25);
+}

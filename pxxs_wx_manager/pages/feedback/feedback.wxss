@@ -1,0 +1,118 @@
+/* pages/feedback/feedback.wxss */
+.feedback-container{
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+}
+.select-icon {
+  width: 28rpx;
+  height: 28rpx;
+  border: 1px solid rgba(153, 153, 153, 1);
+  border-radius: 50%;
+  margin-right:10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checked {
+  width: 18rpx;
+  height: 18rpx;
+  background: rgba(0, 71, 139, 1);
+  border-radius: 50%;
+}
+.department{
+  color: #333333;
+  font-size: 34rpx;
+  font-family:Source Han Sans CN;
+}
+.info-container{
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+  box-sizing: border-box;
+}
+.info-box{
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+  padding: 20rpx 30rpx;
+  border-bottom: 2rpx solid #EEEEEE;
+}
+.title-container{
+  width: 96%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  font-family:Source Han Sans CN;
+}
+.title-box{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+.title{
+  color: #666666;
+  font-size:34rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+}
+.select{
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  font-family:Source Han Sans CN;
+  padding: 20rpx 30rpx;
+  border-bottom: 2rpx solid #EEEEEE;
+}
+.img{
+  width:48rpx;
+  height:38rpx;
+  margin-left: 24rpx; 
+  margin-right: 32rpx; 
+}
+.time{
+  color: #999999;
+  font-size: 32rpx;
+  font-family:Source Han Sans CN;
+  font-weight:400;
+}
+.delete {
+  width: 300rpx;
+  height: 90rpx;
+  background-color: #E64340;
+  color: #ffffff;
+  font-size: 32rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 25rpx;
+  line-height: 100rpx;
+  border-radius:45rpx;
+  box-shadow:0rpx 6rpx 20rpx 4rpx rgba(255,5,0,0.25);
+}

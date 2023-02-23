@@ -1,0 +1,4 @@
+<!--pages/teacher/showCode/showCode.wxml-->
+<view class='container' style='justify-content: center; margin-top:200rpx'>
+  <image style='width: 700rpx;height: 700rpx;' src='{{pre_url}}'></image>
+</view>

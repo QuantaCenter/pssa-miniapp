@@ -1,0 +1,54 @@
+<!--pages/teacher/studentSearch/studentSearch.wxml-->
+<view class='container'>
+  <view class='per-container'>
+    <image src="../img/user_inform.png" class="user-icon"></image>
+    <view class="name-container">
+      <text class="name">{{username}}</text>
+      <text class="period">{{period}}学时</text>
+    </view>
+  </view>
+  <view class='info-container'>
+    <view class='info-head'>
+      <view class='item-head'>学期</view>
+      <view class='item-head'>姓名</view>
+      <view class='item-head'>工号</view>
+      <view class='item-head'>单位</view>
+      <view class='item-head'>
+        <text>会议\n名称</text>      
+      </view>
+      <view class='item-head'>学时</view>
+      <view class='item-head'>
+        <text>出席\n情况</text>
+      </view>
+    </view>
+    <view wx:for='{{member}}' wx:for-index='list_index' wx:key='{{item.user_id}}' class='info-row'>
+      <view class='info-item'>{{item.term}}</view>
+      <view class='info-item'>{{item.username}}</view>
+      <view class='info-item'>
+        <text class='text'>{{item.number}}</text>
+      </view>
+      <view class='info-item'>
+        <text class='text'>{{item.college}}</text>
+      </view>
+      <view class='info-item'>{{item.meeting_name}}</view>
+      <view class='info-item'>{{item.meeting_period}}</view>
+      <view wx:if='{{!editing}}' class='info-item'>{{item.meeting_state}}</view>
+      <view wx:if='{{editing}}' class='info-item'>
+        <view wx:if="{{item.meeting_state === '缺席'}}" class='info-item'>
+          <picker bindtap='selectOn' data-index='{{list_index}}' bindchange='getStatus' range='{{term[list_index]}}' bindcancel='selectOn' value='{{term_index[list_index]}}'>
+            <view class='check-content'>{{term[list_index][term_index[list_index]]}}</view>
+          </picker>
+          <image catchtap='cancel' data-index='{{list_index}}' class='check-icon' src='../img/choose.png'></image>
+        </view>
+        <view  wx:if="{{item.meeting_state !== '缺席'}}" class='info-item' style='color: #E5E5E5'>{{item.meeting_state}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if='{{!editing}}' class='sign-tab'>
+    <view bindtap='reset' class='reset'>重置密码</view>
+    <view bindtap='edit' class='edit'>编辑</view>
+  </view>
+  <view wx:if='{{editing}}' class='sign-tab'>
+    <view bindtap='save' class='save'>保存</view>
+  </view>
+</view>

@@ -1,0 +1,122 @@
+<!--pages/detail/detail.wxml-->
+<view class='container' style='position:relative;'>
+	<image class='meeting-img' mode='aspectFill' src='../img/logo.jpg'></image>
+	<view class='cover'>
+		<view class='meeting-name'>{{meeting.name}}</view>
+	</view>
+	<view catchtap='fold' class='meeting-states'>
+		<text class='content-text'>内容简介：<text wx:if='{{is_folded && need_folded}}' class='floded'>{{folded}}<text class='folded-text'>详情</text></text>
+		<text wx:if='{{!need_folded}}' class='floded'>{{meeting.introduction}}</text>
+		<text wx:if='{{!is_folded && need_folded}}' class='floded'>{{meeting.introduction}} <text class='folded-text'> 收起</text></text></text>
+	</view>
+	<view class='department-container'>
+		<view class='department'>
+			<text class='department-text'>主办单位：<text class='department-content'>{{meeting.hold_unit}} </text></text>
+			<text class='department-text'>派出单位：<text class='department-content'>{{meeting.send_unit}} </text></text>
+		</view>
+	</view>
+	<view class='info-container'>
+		<view class='detail'>
+			<text class='item-style'>级别：<text class='item-content'>{{meeting.level}}</text>
+			</text>
+			<view class="{{meeting.type == 2 ?  'must' : 'elective'}}" style='width:116rpx; height:40rpx; border-radius:10rpx; font-size:28rpx; text-align: center; position:absolute; margin: 10rpx 0 0 220rpx'>{{meeting.type == 2 ? 'General' : 'Specific'}}</view>
+			<!-- <image wx:if='{{meeting.type == 1}}' src='../img/tag1.png' class='tag-img'></image>
+      <image wx:if='{{meeting.type == 2}}' src='../img/tag2.png' class='tag-img'></image> -->
+			<text class='item-style'>类别：<text class='item-content'>{{meeting.category}}</text>
+			</text>
+			<text class='item-style'>学时：<text class='item-content'>{{meeting.score}}</text></text>
+			<text class='item-style'>开始时间：<text class='item-content'>{{meeting.starttime}}</text></text>
+			<text wx:if='{{meeting.type === 2}}' class='item-style'>结束时间：<text class='item-content'>{{meeting.endtime}}</text></text>
+			<text class='item-style'>地点：<text class='item-content'>{{meeting.position}}</text></text>
+			<view class='item-style'>状态:
+				<text class='item-content' style='color:#09BB07'>{{stateObject[meeting.state]}} </text>
+				<!-- <text bindtap='sendMsg' class='item-content' style='color:#576b95'>发送通知</text> -->
+			</view>
+			<view wx:if='{{meeting.type == 1}}' class='item-style'>请假审核:
+				<text bindtap='toLeaveCheck' class='item-content' style='color:#576b95'>查看详情</text>
+			</view>
+			<view wx:if='{{meeting.state != 1}}' class='item-style'>出勤名单:
+				<text bindtap='toAttend' class='item-content' style='color:#576b95'>查看详情</text>
+			</view>
+		</view>
+	</view>
+	<view wx:if='{{meeting.type == 2}}' class="sign-container">
+		<!-- <view class='sign-box'>
+			<view class='select-people' bindtap='toSignList'>
+				<text>查看报名人员</text>
+				<image src='../img/path_blue.png' style='width:12rpx; height: 20rpx; margin-left:12rpx; margin-top:12rpx;'></image>
+			</view>
+		</view> -->
+		<view class='detail'>
+			<view class="detail-header">
+				<text class='item-style'>已选择单位</text>
+				<view class='select-people' bindtap='toSignList'>
+					<text>查看报名人员</text>
+					<image src='../img/path_blue.png' style='width:12rpx; height: 20rpx; margin-left:12rpx; margin-top:12rpx;'></image>
+				</view>
+			</view>
+			<view class='member-box'>
+				<view class='dept-info-row'>
+					单位
+				</view>
+				<view wx:for='{{tableData}}' class='dept-info-row'>
+					{{item.major}}
+				</view>
+			</view>
+		</view>
+	</view>
+	<view wx:if="{{meeting.type === 1}}" class='mem-container'>
+		<view class='detail'>
+			<text class='item-style'>已选择人员</text>
+			<view class='member-box'>
+				<view class='info-row'>
+					<view class='item-head'>单位</view>
+					<view class='item-head'>姓名</view>
+				</view>
+				<view wx:for='{{tableData}}' class='info-row'>
+					<view class='info-department'>{{item.department}}</view>
+					<view class='info-box'>
+						<view>
+							<view class='info-item' wx:for='{{item.info}}' wx:key='user_id' wx:for-item='info'>{{info.username}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+
+	<!-- 发送通知 -->
+	<view class='modal-mask' catchtouchmove='preventTouchMove' wx:if='{{hidden}}' bindtap='cancel'></view>
+	<view class='modal-container' wx:if='{{hidden}}'>
+		<view class='modal-title'>通知内容</view>
+		<view class='modal-content'>
+			<textarea auto-focus='true' class='modal-input' value='{{content}}' bindinput='getContent'></textarea>
+		</view>
+		<view wx:if='{{meeting.type == 1}}' class='modal-footer'>
+			<view class='btn-confirm' bindtap='toSign' style="width: 100%">发送通知</view>
+		</view>
+		<view wx:if='{{meeting.type == 2}}' class='modal-footer'>
+			<view class='btn-confirm' bindtap='toSign'>已报名人员</view>
+			<view class='btn-confirm' bindtap='toChoose'>可报名人员</view>
+		</view>
+	</view>
+	<!-- 未开始 -->
+	<view wx:if='{{meeting.state == 1}}' class='sign-tab'>
+		<view class='tab-item' bindtap='deleteMeeting' style='background-color:#E64340;box-shadow:0rpx 6rpx 20rpx 4rpx rgba(255,5,0,0.25);'>删除会议</view>
+		<view class='tab-item' bindtap='toPublish' style='background-color:#1EBA09;box-shadow:0rpx 6rpx 20rpx 4rpx rgba(30,255,0,0.25);' wx:if="{{rank==1}}">编辑</view>
+		<view class='tab-item' bindtap='startMeeting' style='background-color:#00478B;box-shadow:0rpx 6rpx 20rpx 4rpx rgba(0,130,255,0.25)'>开始会议</view>
+	</view>
+	<!-- 已开始  -->
+	<view wx:if='{{meeting.state == 2}}' class='sign-tab'>
+		<!-- <view class='tab-item' bindtap='deleteMeeting' style='background-color:#E64340; box-shadow:0rpx 6rpx 20rpx 4rpx rgba(255,5,0,0.25);'>删除会议</view> -->
+		<view class='tab-item' bindtap='endMeeting' style='background-color:#1EBA09;box-shadow:0rpx 6rpx 20rpx 4rpx rgba(30,255,0,0.25);'>结束会议</view>
+		<view class='tab-item' bindtap='signCode' style='width:34%; background-color:#00478B;box-shadow:0rpx 6rpx 20rpx 4rpx rgba(0,130,255,0.25);'>签到码</view>
+		<view class='tab-item' bindtap='signOutCode' style='width:34%; background-color:#00478B;box-shadow:0rpx 6rpx 20rpx 4rpx rgba(0,130,255,0.25);'>签退码</view>
+	</view>
+	<!-- 必修已结束 一级权限-->
+	<view wx:if='{{rank === 1 && meeting.state == 3}}' class='sign-tab' style="justify-content: center;">
+		<!-- <view bindtap='deleteMeeting' class='deleteMeeting'>删除会议</view> -->
+		<view data-meeting-id='{{meeting.meeting_id}}' bindtap='toNameList' class='toSelect'>补录名单</view>
+	</view>
+</view>

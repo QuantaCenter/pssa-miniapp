@@ -1,0 +1,39 @@
+/* pages/type/type.wxss */
+
+page {
+  background-color: #fafafa;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1rpx solid #fff;
+  margin-top: 1rpx;
+}
+.type-container {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1rpx solid #fff;
+  margin-top: 1rpx;
+}
+.text {
+  width: 300rpx;
+  font-size: 38rpx;
+  font-family: Source Han Sans CN;
+  color: #333;
+  margin-left: 50rpx;
+}
+.arrow {
+  width: 16rpx;
+  height: 26rpx;
+  margin-right: 40rpx;
+}
